@@ -30,6 +30,7 @@ def apostila(request, id):
     views_totais = ViewApostila.objects.filter(apostila=apostila).count()
     views_unicas = ViewApostila.objects.filter(apostila=apostila).values('ip').distinct().count()
 
+    # TODO: Criar avaliação de apostila
 
     view = ViewApostila(
         ip = request.META['REMOTE_ADDR'],
