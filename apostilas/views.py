@@ -7,7 +7,8 @@ from django.contrib import messages
 def adicionar_apostilas(request):
     if request.method == 'GET':
         apostilas = Apostila.objects.filter(user=request.user)
-
+        # TODO: Criar as tags
+        
         views_totais = ViewApostila.objects.filter(apostila__user=request.user).count()
         return render(request, 'adicionar_apostilas.html', {'apostilas': apostilas, 'views_totais': views_totais})
     elif request.method == 'POST':
