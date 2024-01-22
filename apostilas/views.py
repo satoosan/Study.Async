@@ -24,3 +24,16 @@ def adicionar_apostilas(request):
         apostila.save()
         messages.add_message(request, constants.SUCCESS, 'Apostila adicionada com sucesso!')
         return redirect('/apostilas/adicionar_apostilas/')
+    
+def apostila(request, id):
+    apostila = Apostila.objects.get(id=id)
+    views_totais = ViewApostila.objects.filter(apostila=apostila).count()
+    views_unicas = ViewApostila.objects.filter(apostila=apostila).values('ip').distinct().count()
+
+
+    view = ViewApostila(
+        ip = request.META['REMOTE_ADDR'],
+        apostila = apostila
+    )
+    view.save()
+    return render(request, 'apostila.html', {'apostila': apostila, 'views_totais': views_totais, 'views_unicas': views_unicas})
