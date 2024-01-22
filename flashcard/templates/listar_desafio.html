@@ -54,7 +54,7 @@
                 <tbody>
                     {% for desafio in desafios %}
                         <tr class="linha">
-                            <th><a href="">{{ desafio.id }}</a></th>
+                            <th><a href="{% url 'desafio' desafio.id %}">{{ desafio.id }}</a></th>
                             <td>{{ desafio.titulo }}</td>
                             <td>{{ desafio.get_dificuldade_display }}</td>
                             <td>{{ desafio.status }}</td>
