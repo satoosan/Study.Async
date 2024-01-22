@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Categoria, Flashcard
+from .models import Categoria, Flashcard, FlashcardDesafio, Desafio
 from django.contrib.messages import constants
 from django.contrib import messages
 
@@ -64,3 +64,49 @@ def deletar_flashcard(request, id):
             messages.add_message(request, constants.ERROR, 'Flashcard não encontrado ou não pertence ao usuário')
 
         return redirect('/flashcard/novo_flashcard')
+    
+def iniciar_desafio(request):
+    if request.method == "GET":
+        categorias = Categoria.objects.all()
+        dificuldades = Flashcard.DIFICULDADE_CHOICES
+        return render(request, 'iniciar_desafio.html', {'categorias': categorias, 
+                                                        'dificuldades': dificuldades})
+    elif request.method == "POST":
+        # Handle form submission
+        titulo = request.POST.get('titulo')
+        categoria = request.POST.getlist('categoria')
+        quantidade_perguntas = request.POST.get('quantidade_perguntas')
+        dificuldade = request.POST.get('dificuldade')
+
+        desafio = Desafio(
+            user = request.user,
+            titulo = titulo,
+            quantidade_perguntas = quantidade_perguntas,
+            dificuldade = dificuldade,
+        )
+
+        desafio.save()
+
+        desafio.categoria.add(*categoria)
+
+        flashcards = (
+            Flashcard.objects.filter(user=request.user)
+            .filter(dificuldade=dificuldade)
+            .filter(categoria_id__in=categoria)
+            .order_by('?')
+        )
+
+        if flashcards.count() < int(quantidade_perguntas):
+            messages.add_message(request, constants.ERROR, 'Não há flashcards suficientes para o desafio')
+            return redirect('/flashcard/iniciar_desafio')
+        
+        flashcards = flashcards[:int(quantidade_perguntas)]
+
+        for f in flashcards:
+            flashcard_desafio = FlashcardDesafio(
+                flashcard = f
+            )
+            flashcard_desafio.save()
+            desafio.flashcards.add(flashcard_desafio)
+        
+        desafio.save()
