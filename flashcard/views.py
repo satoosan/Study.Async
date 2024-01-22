@@ -200,4 +200,6 @@ def relatorio(request, id):
     for categoria in categorias:
         dados2.append(desafio.flashcards.filter(flashcard__categoria=categoria).filter(acertou=True).count())
 
+    # TODO: Fazer o Ranking
+
     return render(request,'relatorio.html', {'desafio': desafio, 'dados': dados, 'categorias': name_categoria, 'dados2': dados2})
