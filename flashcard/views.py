@@ -110,3 +110,40 @@ def iniciar_desafio(request):
             desafio.flashcards.add(flashcard_desafio)
         
         desafio.save()
+
+        return redirect('/flashcard/listar_desafio')
+
+def listar_desafio(request):
+    categorias = Categoria.objects.all()
+    dificuldades = Flashcard.DIFICULDADE_CHOICES
+
+    # Obtém os parâmetros de filtro da URL
+    categoria_filtrar = request.GET.get('categoria')
+    dificuldade_filtrar = request.GET.get('dificuldade')
+
+    # Filtra os desafios com base nos parâmetros
+    desafios = Desafio.objects.filter(user=request.user)
+
+    if categoria_filtrar:
+        desafios = desafios.filter(categoria__id=categoria_filtrar)
+
+    if dificuldade_filtrar:
+        desafios = desafios.filter(dificuldade=dificuldade_filtrar)
+
+    # Adiciona informações de status aos desafios
+    for desafio in desafios:
+        flashcards_do_desafio = desafio.flashcards.all()
+        respondidos = flashcards_do_desafio.filter(respondido=True)
+
+        if respondidos.count() == flashcards_do_desafio.count():
+            desafio.status = 'Concluído'
+        else:
+            desafio.status = 'Não Concluído'
+    
+    return render(request, 'listar_desafio.html', {
+        'desafios': desafios,
+        'categorias': categorias,
+        'dificuldades': dificuldades,
+        'categoria_filtrar': categoria_filtrar,
+        'dificuldade_filtrar': dificuldade_filtrar,
+    })
