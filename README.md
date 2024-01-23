@@ -6,6 +6,10 @@ O Study.Async é uma aplicação projetada para auxiliar usuários a estudar dif
 
 ༼ つ ◕_◕ ༽つ  [Visão Geral da Aplicação](https://github.com/satoosan/Study.Async/tree/main/overview)  
 
+## 💻 Tecnologias
+- 🐍 Python 3.7
+- Django
+
 ## Funcionalidades Principais
 
 1. **Adição de Flashcards**:
