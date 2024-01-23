@@ -4,6 +4,8 @@ Desenvolvido na Pystack Week 9.0, lecionado por Caio Sampaio.
 ## Descrição
 O Study.Async é uma aplicação projetada para auxiliar usuários a estudar diferentes matérias e assuntos de forma interativa, utilizando flashcards. Os usuários podem criar, revisar e testar seus conhecimentos em diversos tópicos, enquanto o aplicativo monitora seu progresso.
 
+[Visão Geral da Aplicação]()
+
 ## Funcionalidades Principais
 
 1. **Adição de Flashcards**:
@@ -67,6 +69,8 @@ Com o servidor rodando, entre na área admin:
 localhost:8000/**admin** <- adicionando
 
 Agora você tem acesso as tabelas!
+Após isso, é possível se registrar e logar na aplicação.
+E aproveitar a criar flashcards para estudos ou para outros fins.
 
 
 ⚠ Em desenvolvimento
