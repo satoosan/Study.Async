@@ -68,9 +68,14 @@ Com o servidor rodando, entre na área admin:
 
 localhost:8000/**admin** <- adicionando
 
-Agora você tem acesso as tabelas!
-Após isso, é possível se registrar e logar na aplicação.
-E aproveitar a criar flashcards para estudos ou para outros fins.
+Agora você tem acesso as tabelas! Após isso, é possível se registrar e logar na aplicação. E aproveitar a criar flashcards para estudos ou para outros fins.
 
+----
 
-⚠ Em desenvolvimento
+**Créditos**: [Caio Sampaio](https://www.linkedin.com/in/caio-sampaio-b08b8a17b/)
+
+**Curso**: Pystack Week 9.0
+
+**Certificação**: [Pythonando](https://cdn.discordapp.com/attachments/1198391844111912980/1199182585092378706/Certificado_Conclusao.jpg?ex=65c19cd0&is=65af27d0&hm=ff24a8b31cc3692847bb8fcfe9bc720ec01c374036410eafb60a8396ede00711&)
+
+---
