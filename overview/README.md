@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>Study.Async</h1>
-  <span id="0">
+  <h1 id="0">Study.Async</h1>
+  <span >
     <a href="#1">Cadastro/Login</a> • <a href="#2">Flashcard</a> • <a href="#3">Desafio</a> • <a href="#4">Relatório</a> • <a href="#5">Apostila</a>
   </span>
 </div>
