@@ -74,6 +74,11 @@ localhost:8000/**admin** <- adicionando
 
 Agora você tem acesso as tabelas! Após isso, é possível se registrar e logar na aplicação. E aproveitar a criar flashcards para estudos ou para outros fins.
 
+Ao entrar na área admin:
+- Adicione suas categorias para alimentar a aplicação
+
+<img src="https://cdn.discordapp.com/attachments/1198391844111912980/1199578000467951656/image.png?ex=65c30d12&is=65b09812&hm=1511b59e24fbfe0115af214cb1269ca02840fecb065fb02236b6c56007a8ecd4&" width="550px"/>
+
 ----
 
 **Créditos**: [Caio Sampaio](https://www.linkedin.com/in/caio-sampaio-b08b8a17b/)
